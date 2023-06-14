@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/10/14 14:30:29.000.527,=C:\Users\prese\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 15:07:22.000.964,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untPrincipal.dfm=C:\Users\prese\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/10/14 15:07:22.000.964,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untPrincipal.pas=C:\Users\prese\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 15:07:35.000.603,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\ECAD.dproj=C:\Users\prese\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/10/14 15:09:53.000.475,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 15:10:11.000.952,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.dfm=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroAutores.dfm</Transaction>
+    <Transaction>2022/10/14 15:10:11.000.952,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroAutores.pas</Transaction>
+    <Transaction>2022/10/14 16:44:11.000.358,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit2.pas</Transaction>
+    <Transaction>2022/10/14 16:44:39.000.626,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit2.dfm=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroMusica.dfm</Transaction>
+    <Transaction>2022/10/14 16:44:39.000.626,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit2.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroMusica.pas</Transaction>
+    <Transaction>2022/10/14 19:57:23.000.629,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 20:00:17.000.540,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\DataModule\dtmECAD.dfm=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.dfm</Transaction>
+    <Transaction>2022/10/14 20:00:17.000.540,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\DataModule\dtmECAD.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 23:16:39.000.575,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/14 23:17:09.000.736,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.dfm=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.dfm</Transaction>
+    <Transaction>2022/10/14 23:17:09.000.736,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas</Transaction>
+    <Transaction>2022/10/15 09:22:29.000.312,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\DataModule\dtmECAD.pas=</Transaction>
+    <Transaction>2022/10/15 09:23:31.000.097,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\DataModule\dtmAutor.pas</Transaction>
+    <Transaction>2022/10/15 11:14:38.000.608,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/15 11:15:04.000.894,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untPublic.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/15 14:56:31.000.251,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\DataModule\dtmAutor.pas=</Transaction>
+    <Transaction>2022/10/15 14:57:55.000.583,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\DataModule\dtmECAD.pas</Transaction>
+    <Transaction>2022/10/15 17:11:24.000.404,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/15 17:12:01.000.158,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroMusica.pas=</Transaction>
+    <Transaction>2022/10/15 17:12:10.000.847,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroMusica.dfm=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.dfm</Transaction>
+    <Transaction>2022/10/15 17:12:10.000.847,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroMusica.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/15 17:20:10.000.112,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroMusica.pas=</Transaction>
+    <Transaction>2022/10/15 17:24:07.000.770,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroMusica.pas</Transaction>
+    <Transaction>2022/10/16 14:33:36.000.917,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroAutorMusica.pas</Transaction>
+    <Transaction>2022/10/17 00:14:39.000.417,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas=</Transaction>
+    <Transaction>2022/10/17 00:14:48.000.478,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas</Transaction>
+    <Transaction>2022/10/17 01:51:33.000.897,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas=</Transaction>
+    <Transaction>2022/10/17 01:52:34.000.338,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas</Transaction>
+    <Transaction>2022/10/17 01:52:52.000.851,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas=</Transaction>
+    <Transaction>2022/10/17 01:53:11.000.054,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas</Transaction>
+    <Transaction>2022/10/17 01:54:00.000.780,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untExecMusica.pas=</Transaction>
+    <Transaction>2022/10/17 01:55:50.000.954,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroExecMusica.pas</Transaction>
+    <Transaction>2022/10/17 02:01:00.000.227,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroExecMusica.pas=</Transaction>
+    <Transaction>2022/10/17 02:01:34.000.866,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untCadastroExecMusica.pas</Transaction>
+    <Transaction>2022/10/17 17:23:15.000.034,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/17 17:26:26.000.489,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untProcessaPagamento.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/17 17:26:26.000.489,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untProcessaPagamento.dfm=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.dfm</Transaction>
+    <Transaction>2022/10/18 20:06:36.000.085,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/18 20:46:10.000.389,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.dfm=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untConsultaMusicaAutor.dfm</Transaction>
+    <Transaction>2022/10/18 20:46:10.000.389,C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untConsultaMusicaAutor.pas</Transaction>
+    <Transaction>2022/10/18 21:13:49.000.339,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\Unit1.pas</Transaction>
+    <Transaction>2022/10/18 21:22:47.000.212,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untConsultaMusicaAutorNacionalidade.pas</Transaction>
+    <Transaction>2022/10/18 21:41:46.000.374,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untConsultaMusicaData.pas</Transaction>
+    <Transaction>2022/10/18 22:05:51.000.697,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untConsultaMesVerba.pas</Transaction>
+    <Transaction>2022/10/18 22:39:22.000.791,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untConsultaMesAutorVerba.pas</Transaction>
+    <Transaction>2022/10/18 23:07:39.000.117,=C:\Users\prese\OneDrive\Área de Trabalho\ECAD\untConsultaAutorMesVerba.pas</Transaction>
+  </Transactions>
+</BorlandProject>

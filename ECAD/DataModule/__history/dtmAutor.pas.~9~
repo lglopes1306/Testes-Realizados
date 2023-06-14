@@ -1,0 +1,50 @@
+unit dtmAutor;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, DBXDevartOracle, Data.FMTBcd, Data.DB,
+  Data.SqlExpr, Datasnap.DBClient, Datasnap.Provider;
+
+type
+  TAutor = class(TDataModule)
+    ConnectionAutor: TSQLConnection;
+    qryAutores: TSQLQuery;
+    qryAlteraAutor: TSQLQuery;
+    dspAutor: TDataSetProvider;
+    cdtsAutor: TClientDataSet;
+    dtsAutor: TDataSource;
+    qryAutoresNOME: TWideStringField;
+    qryAutoresNOME_ARTISTICO: TWideStringField;
+    qryAutoresCPF: TWideStringField;
+    qryAutoresRG: TWideStringField;
+    qryAutoresBANCO: TWideStringField;
+    qryAutoresAGENCIA: TWideStringField;
+    qryAutoresCONTA: TWideStringField;
+    qryAutoresIDAUTOR: TFMTBCDField;
+    qryDeletaAutor: TSQLQuery;
+    SQLQuery1: TSQLQuery;
+    procedure DataModuleCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Autor: TAutor;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+
+procedure TAutor.DataModuleCreate(Sender: TObject);
+begin
+    ConnectionAutor.Connected:= True;
+end;
+
+end.

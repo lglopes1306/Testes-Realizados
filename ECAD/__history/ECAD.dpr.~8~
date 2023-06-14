@@ -1,0 +1,19 @@
+program ECAD;
+
+uses
+  Vcl.Forms,
+  untPrincipal in 'untPrincipal.pas' {frmPrincipal},
+  untCadastroAutores in 'untCadastroAutores.pas' {frmCadastroAutor},
+  untExecMusica in 'untExecMusica.pas' {frmCadastroExecMusica},
+  untPublic in 'untPublic.pas',
+  dtmECAD in 'DataModule\dtmECAD.pas' {ECAD: TDataModule},
+  untCadastroMusica in 'untCadastroMusica.pas' {frmCadastroMusica};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.Run;
+end.

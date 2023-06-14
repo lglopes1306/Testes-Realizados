@@ -1,0 +1,228 @@
+object Autor: TAutor
+  OldCreateOrder = False
+  Height = 323
+  Width = 335
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'Devart Oracle'
+    DriverName = 'DevartOracleDirect'
+    LoginPrompt = False
+    Params.Strings = (
+      'BlobSize=-1'
+      'DataBase=xe'
+      'ErrorResourceFile='
+      'HostName=localhost:1521'
+      'LocaleCode=0000'
+      'Password=LUIZ_ECAD'
+      'Oracle TransIsolation=ReadCommitted'
+      'User_Name=system'
+      'UseQuoteChar=False'
+      'UseUnicode=True'
+      'GetDriverFunc=getSQLDriverORADirect'
+      'LibraryName=dbexpoda41.dll'
+      'VendorLib=dbexpoda41.dll'
+      'ProductName=DevartOracle'
+      'IPVersion=IPv4'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DBXCommonDriver260.' +
+        'bpl'
+      
+        'MetaDataPackageLoader=TDBXDevartOracleMetaDataCommandFactory,Dbx' +
+        'DevartOracleDriver260.bpl'
+      'DriverUnit=DBXDevartOracle')
+    Connected = True
+    Left = 24
+    Top = 16
+  end
+  object qryAutores: TSQLQuery
+    Active = True
+    MaxBlobSize = -1
+    Params = <>
+    SQL.Strings = (
+      'Select IdAutor,'
+      '          Nome,'
+      '          Nome_Artistico,'
+      '          CPF,'
+      '          RG,'
+      '          Banco,'
+      '          Agencia,'
+      '          Conta'
+      '  from Autor')
+    SQLConnection = SQLConnection1
+    Left = 104
+    Top = 16
+    object qryAutoresNOME: TWideStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 60
+    end
+    object qryAutoresNOME_ARTISTICO: TWideStringField
+      FieldName = 'NOME_ARTISTICO'
+      Size = 60
+    end
+    object qryAutoresCPF: TWideStringField
+      FieldName = 'CPF'
+      Size = 12
+    end
+    object qryAutoresRG: TWideStringField
+      FieldName = 'RG'
+      Size = 15
+    end
+    object qryAutoresBANCO: TWideStringField
+      FieldName = 'BANCO'
+      Size = 30
+    end
+    object qryAutoresAGENCIA: TWideStringField
+      FieldName = 'AGENCIA'
+      Size = 5
+    end
+    object qryAutoresCONTA: TWideStringField
+      FieldName = 'CONTA'
+      Size = 10
+    end
+    object qryAutoresIDAUTOR: TFMTBCDField
+      FieldName = 'IDAUTOR'
+      Required = True
+      Precision = 32
+      Size = 0
+    end
+  end
+  object qryInseriAutor: TSQLQuery
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'nome'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'nome_artistico'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'cpf'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'rg'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'banco'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'agencia'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'conta'
+        ParamType = ptInput
+      end>
+    SQL.Strings = (
+      
+        'Insert Into autor(nome,nome_artistico,cpf,rg,banco,agencia,conta' +
+        ')'
+      
+        '    values (:nome,:nome_artistico,:cpf,:rg,:banco,:agencia,:cont' +
+        'a)')
+    SQLConnection = SQLConnection1
+    Left = 24
+    Top = 72
+  end
+  object dspAutor: TDataSetProvider
+    DataSet = qryAutores
+    Left = 160
+    Top = 16
+  end
+  object cdtsAutor: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspAutor'
+    Left = 216
+    Top = 16
+  end
+  object dtsAutor: TDataSource
+    DataSet = cdtsAutor
+    Left = 280
+    Top = 16
+  end
+  object qryAlteraAutor: TSQLQuery
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'nome'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'nome_artistico'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'cpf'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'rg'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'banco'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'agencia'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'conta'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'idAutor'
+        ParamType = ptInput
+      end>
+    SQL.Strings = (
+      ' update autor '
+      '       set nome = :nome,'
+      '             nome_artistico = :nome_artistico,'
+      '             cpf = :cpf,'
+      '             rg = :rg,'
+      '             banco = :banco,'
+      '            agencia = :agencia,'
+      '            conta = :conta'
+      ' where idAutor = :idAutor;')
+    SQLConnection = SQLConnection1
+    Left = 104
+    Top = 72
+  end
+  object qryDeletaAutor: TSQLQuery
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'idAutor'
+        ParamType = ptInput
+      end>
+    SQL.Strings = (
+      '  Delete from Autor  where idAutor = :idAutor;'
+      '')
+    SQLConnection = SQLConnection1
+    Left = 168
+    Top = 72
+  end
+end

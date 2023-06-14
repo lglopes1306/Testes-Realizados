@@ -1,0 +1,57 @@
+unit untPublic;
+
+  interface
+     uses vcl.Forms, Vcl.StdCtrls, Windows, SysUtils, Classes;
+
+     procedure Limpar(Form_Chamada : TForm );
+     procedure AlteraDados(QuerySql : String);
+
+implementation
+uses dtmECAD;
+
+procedure Limpar(Form_Chamada : TForm );
+var
+   i : integer;
+begin
+
+  for i := 0 to Form_Chamada.ComponentCount - 1  do
+  begin
+      if (Form_Chamada.Components[i] is TEdit) then
+          TEdit(Form_Chamada.Components[i]).Text := '';
+
+      if (Form_Chamada.Components[i] is TComboBox) then
+      begin
+          TComboBox(Form_Chamada.Components[i]).ItemIndex := - 1 ;
+          TComboBox(Form_Chamada.Components[i]).Text := 'Escolha o Banco';
+      end;
+
+      if Form_Chamada.Components[i] is TButton then
+      begin
+          if (TButton(Form_Chamada.Components[i]).Caption = 'Alterar') then
+             TButton(Form_Chamada.Components[i]).Caption := 'Salvar';
+
+          if (TButton(Form_Chamada.Components[i]).Caption = 'Excluir') then
+              TButton(Form_Chamada.Components[i]).Caption := 'Limpar';
+
+
+      end;
+
+  end;
+
+end;
+
+procedure AlteraDados(QuerySql : String);
+begin
+      Application.CreateForm(TECAD,ECAD);
+      if QuerySql <> '' then
+      begin
+        ECAD.qryAlterar.SQL.Clear;
+        ECAD.qryAlterar.SQL.Add(QuerySql);
+        ECAD.qryAlterar.ExecSQL();
+      end;
+      FreeAndNil(ECAD);
+
+
+end;
+
+end.

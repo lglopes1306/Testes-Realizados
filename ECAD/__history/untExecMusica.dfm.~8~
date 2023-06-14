@@ -1,0 +1,302 @@
+object frmCadastroExecMusica: TfrmCadastroExecMusica
+  Left = 0
+  Top = 0
+  BiDiMode = bdLeftToRight
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = 'Cadastro de Execu'#231#227'o de M'#250'sicas'
+  ClientHeight = 384
+  ClientWidth = 341
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIForm
+  OldCreateOrder = False
+  ParentBiDiMode = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 341
+    Height = 384
+    Align = alClient
+    TabOrder = 0
+    ExplicitHeight = 364
+    object Label7: TLabel
+      Left = 144
+      Top = 704
+      Width = 84
+      Height = 13
+      Caption = 'NOM_ARTISTICO'
+      FocusControl = DBEdit7
+    end
+    object Label8: TLabel
+      Left = 144
+      Top = 1152
+      Width = 35
+      Height = 13
+      Caption = 'BANCO'
+      FocusControl = DBEdit8
+    end
+    object Label9: TLabel
+      Left = 144
+      Top = 1600
+      Width = 45
+      Height = 13
+      Caption = 'AGENCIA'
+      FocusControl = DBEdit9
+    end
+    object Label10: TLabel
+      Left = 144
+      Top = 2048
+      Width = 35
+      Height = 13
+      Caption = 'CONTA'
+      FocusControl = DBEdit10
+    end
+    object Label13: TLabel
+      Left = 208
+      Top = 736
+      Width = 84
+      Height = 13
+      Caption = 'NOM_ARTISTICO'
+      FocusControl = DBEdit13
+    end
+    object Label14: TLabel
+      Left = 208
+      Top = 1184
+      Width = 35
+      Height = 13
+      Caption = 'BANCO'
+      FocusControl = DBEdit14
+    end
+    object Label15: TLabel
+      Left = 208
+      Top = 1632
+      Width = 45
+      Height = 13
+      Caption = 'AGENCIA'
+      FocusControl = DBEdit15
+    end
+    object Label16: TLabel
+      Left = 208
+      Top = 2080
+      Width = 35
+      Height = 13
+      Caption = 'CONTA'
+      FocusControl = DBEdit16
+    end
+    object Label1: TLabel
+      Left = 16
+      Top = 8
+      Width = 71
+      Height = 13
+      Caption = 'NOME M'#218'SICA'
+    end
+    object Label6: TLabel
+      Left = 16
+      Top = 48
+      Width = 84
+      Height = 13
+      Caption = 'DATA EXECU'#199#195'O'
+      OnClick = Label6Click
+    end
+    object Label11: TLabel
+      Left = 170
+      Top = 49
+      Width = 66
+      Height = 13
+      Caption = 'QUANTIDADE'
+    end
+    object DBEdit1: TDBEdit
+      Left = 144
+      Top = 472
+      Width = 784
+      Height = 21
+      DataField = 'NOME'
+      TabOrder = 0
+    end
+    object DBEdit7: TDBEdit
+      Left = 144
+      Top = 920
+      Width = 784
+      Height = 21
+      DataField = 'NOM_ARTISTICO'
+      TabOrder = 1
+    end
+    object DBEdit8: TDBEdit
+      Left = 144
+      Top = 1368
+      Width = 394
+      Height = 21
+      DataField = 'BANCO'
+      TabOrder = 2
+    end
+    object DBEdit9: TDBEdit
+      Left = 144
+      Top = 1816
+      Width = 69
+      Height = 21
+      DataField = 'AGENCIA'
+      TabOrder = 3
+    end
+    object DBEdit10: TDBEdit
+      Left = 144
+      Top = 2264
+      Width = 134
+      Height = 21
+      DataField = 'CONTA'
+      TabOrder = 4
+    end
+    object DBEdit11: TDBEdit
+      Left = 184
+      Top = 464
+      Width = 784
+      Height = 21
+      DataField = 'NOM_ARTISTICO'
+      TabOrder = 5
+    end
+    object DBEdit12: TDBEdit
+      Left = 208
+      Top = 504
+      Width = 784
+      Height = 21
+      DataField = 'NOME'
+      TabOrder = 6
+    end
+    object DBEdit13: TDBEdit
+      Left = 208
+      Top = 952
+      Width = 784
+      Height = 21
+      DataField = 'NOM_ARTISTICO'
+      TabOrder = 7
+    end
+    object DBEdit14: TDBEdit
+      Left = 208
+      Top = 1400
+      Width = 394
+      Height = 21
+      DataField = 'BANCO'
+      TabOrder = 8
+    end
+    object DBEdit15: TDBEdit
+      Left = 208
+      Top = 1848
+      Width = 69
+      Height = 21
+      DataField = 'AGENCIA'
+      TabOrder = 9
+    end
+    object DBEdit16: TDBEdit
+      Left = 208
+      Top = 2296
+      Width = 134
+      Height = 21
+      DataField = 'CONTA'
+      TabOrder = 10
+    end
+    object grdExec_Musica: TDBGrid
+      Left = 1
+      Top = 141
+      Width = 339
+      Height = 242
+      Align = alBottom
+      BiDiMode = bdLeftToRight
+      DataSource = ECAD.dtsExec_Musica
+      Options = [dgTitles, dgColumnResize, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
+      ParentBiDiMode = False
+      TabOrder = 11
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDblClick = grdExec_MusicaDblClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'NOME'
+          Width = 153
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'NACIONALIDADE'
+          Width = 167
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DT_INSCRICAO'
+          Title.Caption = 'INSCRI'#199#195'O'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'IDMUSICA'
+          Visible = False
+        end>
+    end
+    object btnSalvarAlterar: TButton
+      Left = 249
+      Top = 110
+      Width = 75
+      Height = 25
+      Caption = 'Salvar'
+      TabOrder = 12
+      OnClick = btnSalvarAlterarClick
+    end
+    object btnExcluirLimpar: TButton
+      Left = 168
+      Top = 110
+      Width = 75
+      Height = 25
+      Caption = 'Limpar'
+      TabOrder = 13
+      OnClick = btnSalvarAlterarClick
+    end
+    object dtpExecucao: TDateTimePicker
+      Left = 16
+      Top = 64
+      Width = 137
+      Height = 21
+      Date = 44849.000000000000000000
+      Time = 0.738758668980153700
+      TabOrder = 14
+    end
+    object cmbNacionalidade: TComboBox
+      Left = 168
+      Top = 64
+      Width = 156
+      Height = 21
+      BiDiMode = bdLeftToRight
+      CharCase = ecUpperCase
+      ParentBiDiMode = False
+      TabOrder = 15
+      Text = 'ESCOLHA...'
+      Items.Strings = (
+        'BRASIL'
+        'ESTADOS UNIDOS'
+        'M'#201'XICO'
+        'CANAD'#193
+        'ESPANHA'
+        'FRAN'#199'A'
+        'HOLANDA'
+        'CHINA')
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 16
+      Top = 21
+      Width = 308
+      Height = 21
+      TabOrder = 16
+    end
+  end
+end

@@ -1,0 +1,221 @@
+unit untCadastroAutores;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TfrmCadastroAutor = class(TForm)
+    Panel1: TPanel;
+    DBEdit1: TDBEdit;
+    Label7: TLabel;
+    DBEdit7: TDBEdit;
+    Label8: TLabel;
+    DBEdit8: TDBEdit;
+    Label9: TLabel;
+    DBEdit9: TDBEdit;
+    Label10: TLabel;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBEdit12: TDBEdit;
+    Label13: TLabel;
+    DBEdit13: TDBEdit;
+    Label14: TLabel;
+    DBEdit14: TDBEdit;
+    Label15: TLabel;
+    DBEdit15: TDBEdit;
+    Label16: TLabel;
+    DBEdit16: TDBEdit;
+    grdAutor: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtNome: TEdit;
+    edtNomeArtistico: TEdit;
+    Label6: TLabel;
+    edtCPF: TEdit;
+    Label11: TLabel;
+    edtIdentidade: TEdit;
+    Panel2: TPanel;
+    Label5: TLabel;
+    Label4: TLabel;
+    Label3: TLabel;
+    edtAgencia: TEdit;
+    cmbBanco: TComboBox;
+    edtConta: TEdit;
+    btnSalvarAlterar: TButton;
+    btnExcluirLimpar: TButton;
+    procedure BotaoClicado(NomeBotao : string);
+    procedure btnSalvarAlterarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure grdAutorDblClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+     idAutor : string;
+    { Public declarations }
+  end;
+
+var
+  frmCadastroAutor: TfrmCadastroAutor;
+
+implementation
+uses dtmECAD, untPrincipal, untPublic;
+{$R *.dfm}
+
+procedure TfrmCadastroAutor.BotaoClicado(NomeBotao : string);
+var
+   Query: string;
+begin
+
+    if (CamposObrigatorios(frmCadastroAutor) = False)
+   and (NomeBotao <> 'Excluir' ) then
+        exit;
+
+    try
+       if (NomeBotao = 'Salvar') then
+         begin
+
+            Query := 'Insert Into autor(nome,nome_artistico,cpf,rg,banco,agencia,conta) values (';
+            Query := Query + ''''+edtNome.Text+''',';
+            Query := Query + ''''+edtNomeArtistico.Text+''',';
+            Query := Query + ''''+edtCPF.Text+''',';
+            Query := Query + ''''+edtIdentidade.Text+''',';
+            Query := Query + ''''+IntToStr(cmbBanco.ItemIndex)+'-'+cmbBanco.Text+''',';
+            Query := Query + ''''+edtAgencia.Text+''',';
+            Query := Query + ''''+edtConta.Text+''')';
+
+            AlteraDados(Query);
+
+            Application.MessageBox('Autor Inserido Com Sucesso!','Atenção!',MB_OK);
+
+         end
+       else if (NomeBotao = 'Alterar') then
+         begin
+
+             if (Application.MessageBox(pchar('Deseja Alterar o Autor '+edtNome.Text+'?'),'Atenção!',MB_YESNO+MB_ICONWARNING) = ID_YES) then
+             begin
+
+                Query :=         'update autor';
+                Query := Query + '   set nome = '''+edtNome.Text+''',';
+                Query := Query + '       nome_artistico = '''+edtNomeArtistico.Text+''',';
+                Query := Query + '       cpf = '''+edtCPF.Text+''',';
+                Query := Query + '       rg = '''+edtIdentidade.Text+''',';
+                Query := Query + '       banco = '''+IntToStr(cmbBanco.ItemIndex)+'-'+cmbBanco.Text+''',';
+                Query := Query + '       agencia = '''+edtAgencia.Text+''',';
+                Query := Query + '       conta = '''+edtConta.Text+'''';
+                Query := Query + ' where idAutor = '+ idAutor;
+
+                AlteraDados(Query);
+
+
+                Application.MessageBox('Autor Alterado Com Sucesso!','Atenção!',MB_OK);
+
+             end;
+
+         end
+       else if (NomeBotao = 'Excluir') then
+         begin
+            if (Application.MessageBox(pchar('Deseja Excluir o Autor '+edtNome.Text+'?'),'Atenção!',MB_YESNO+MB_ICONWARNING) = ID_YES) then
+             begin
+
+              Query :=         'delete from autor';
+              Query := Query + ' where idAutor = '+ idAutor;
+
+              AlteraDados(Query);
+
+              Application.MessageBox('Autor Excluído Com Sucesso!','Cadastro Autor',MB_OK);
+
+             end;
+         end;
+
+    Except on E: Exception do
+     begin
+        Application.MessageBox(pchar('ERROR: '+E.Message),'Cadastro Autor', MB_OK);
+        FreeAndNil(ECAD);
+        CloseModal;
+     end;
+
+    end;
+
+     Limpar(frmCadastroAutor);
+
+
+     ECAD.qryAutores.Close;
+     ECAD.qryAutores.Open;
+
+     ECAD.cdtsAutor.Close;
+     ECAD.cdtsAutor.Open;
+
+
+
+end;
+
+procedure TfrmCadastroAutor.btnLimparClick(Sender: TObject);
+begin
+    Limpar(frmCadastroAutor);
+
+end;
+
+procedure TfrmCadastroAutor.btnSalvarAlterarClick(Sender: TObject);
+begin
+    BotaoClicado(TButton(sender).Caption);
+end;
+
+procedure TfrmCadastroAutor.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FreeAndNil(ECAD);
+
+end;
+
+procedure TfrmCadastroAutor.FormCreate(Sender: TObject);
+begin
+
+
+  Application.CreateForm(TECAD,ECAD);
+
+  try
+
+     ECAD.qryAutores.Close;
+     ECAD.qryAutores.Open;
+
+     ECAD.cdtsAutor.Close;
+     ECAD.cdtsAutor.Open;
+
+  Except on E: Exception do
+    begin
+         Application.MessageBox(pchar('ERROR: '+E.Message),'Cadastro Autor', MB_OK);
+         FreeAndNil(ECAD);
+         CloseModal;
+    end;
+
+  end;
+
+
+
+end;
+
+procedure TfrmCadastroAutor.grdAutorDblClick(Sender: TObject);
+var Ind : string;
+begin
+   ind :=  grdAutor.Fields[4].Value;
+
+   edtNome.Text         := grdAutor.Fields[0].Value;
+   edtNomeArtistico.Text:= grdAutor.Fields[1].Value;
+   edtCPF.Text          := grdAutor.Fields[2].Value;
+   edtIdentidade.Text   := grdAutor.Fields[3].Value;
+   cmbBanco.ItemIndex   := StrToInt(trim(copy(ind,0,pos('-',ind)-1)));
+   edtAgencia.Text      := grdAutor.Fields[5].Value;
+   edtConta.Text        := grdAutor.Fields[6].Value;
+   idAutor              := grdAutor.Fields[7].Value;
+
+   btnSalvarAlterar.Caption := 'Alterar';
+   btnExcluirLimpar.Caption := 'Excluir';
+end;
+
+end.

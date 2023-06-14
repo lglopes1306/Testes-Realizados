@@ -1,0 +1,15 @@
+program PROJETO_INFO_SISTEMAS;
+
+uses
+  Vcl.Forms,
+  DtAPI in 'DtAPI.pas' {DtmAPI: TDataModule},
+  FCadastro in 'FCadastro.pas' {FrmCadastro};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrmCadastro, FrmCadastro);
+  Application.Run;
+end.

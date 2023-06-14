@@ -1,0 +1,132 @@
+unit untPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Data.DBXOracle,
+  Data.DB, Data.SqlExpr, DBXDevartOracle, Vcl.Imaging.pngimage, Vcl.Imaging.jpeg;
+
+type
+  TfrmPrincipal = class(TForm)
+    Panel1: TPanel;
+    MainMenu1: TMainMenu;
+    Cadastro1: TMenuItem;
+    CadastroAutor: TMenuItem;
+    CadastroMusica: TMenuItem;
+    ExecMusica: TMenuItem;
+    Relatrios1: TMenuItem;
+    MusicaAutor: TMenuItem;
+    Image1: TImage;
+    GeraPagamento: TMenuItem;
+    MusicaAutorNacionalidade: TMenuItem;
+    MusicaData: TMenuItem;
+    MesVerba: TMenuItem;
+    procedure CadastroAutorClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+uses untCadastroAutores, untCadastroMusica, untCadastroExecMusica, untProcessaPagamento,
+     untConsultaMusicaAutor, untConsultaMusicaAutorNacionalidade, untConsultaMusicaData,
+     untConsultaMesVerba;
+{$R *.dfm}
+
+procedure TfrmPrincipal.CadastroAutorClick(Sender: TObject);
+begin
+
+  if (TMenuItem(sender).Name = 'CadastroAutor') then
+    begin
+       Application.CreateForm(TfrmCadastroAutor,frmCadastroAutor);
+       try
+           frmCadastroAutor.ShowModal;
+       finally
+            FreeAndNil(frmCadastroAutor);
+       end;
+    end
+  else if (TMenuItem(sender).name = 'CadastroMusica') then
+    begin
+        Application.CreateForm(TfrmCadastroMusica,frmCadastroMusica);
+        try
+            frmCadastroMusica.ShowModal;
+        finally
+            FreeAndNil(frmCadastroMusica);
+        end;
+    end
+  else if (TMenuItem(sender).name = 'ExecMusica') then
+    begin
+        Application.CreateForm(TfrmCadastroExecMusica,frmCadastroExecMusica);
+
+        try
+            frmCadastroExecMusica.ShowModal ;
+        finally
+            FreeAndNil(frmCadastroExecMusica);
+        end;
+    end
+  else if (TMenuItem(sender).name = 'GeraPagamento') then
+    begin
+        Application.CreateForm(TfrmProcessaPagamento,frmProcessaPagamento);
+
+        try
+            frmProcessaPagamento.ShowModal ;
+        finally
+            FreeAndNil(frmProcessaPagamento);
+        end;
+    end
+  else if (TMenuItem(sender).name = 'MusicaAutor') then
+    begin
+        Application.CreateForm(TfrmConsultaMusicaAutor,frmConsultaMusicaAutor);
+
+        try
+            frmConsultaMusicaAutor.ShowModal ;
+        finally
+            FreeAndNil(frmConsultaMusicaAutor);
+        end;
+    end
+  else if (TMenuItem(sender).name = 'MusicaAutorNacionalidade') then
+    begin
+        Application.CreateForm(TfrmConsultaMusicaAutorNacionalidade,frmConsultaMusicaAutorNacionalidade);
+
+        try
+            frmConsultaMusicaAutorNacionalidade.ShowModal ;
+        finally
+            FreeAndNil(frmConsultaMusicaAutorNacionalidade);
+        end;
+    end
+  else if (TMenuItem(sender).name = 'MusicaData') then
+    begin
+        Application.CreateForm(TfrmConsultaMusicaData,frmConsultaMusicaData);
+
+        try
+            frmConsultaMusicaData.ShowModal ;
+        finally
+            FreeAndNil(frmConsultaMusicaData);
+        end;
+    end
+  else if (TMenuItem(sender).name = 'MusicaData') then
+    begin
+        Application.CreateForm(TfrmConsultaMusicaData,frmConsultaMusicaData);
+
+        try
+            frmConsultaMusicaData.ShowModal ;
+        finally
+            FreeAndNil(frmConsultaMusicaData);
+        end;
+    end;
+
+end;
+
+
+
+
+
+
+
+end.

@@ -1,0 +1,214 @@
+object frmProcessaPagamento: TfrmProcessaPagamento
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = 'Processa Pagamento'
+  ClientHeight = 405
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 447
+    Height = 405
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = -8
+    object Label1: TLabel
+      Left = 8
+      Top = 21
+      Width = 68
+      Height = 13
+      Caption = 'DATA INICIAL'
+    end
+    object Label2: TLabel
+      Left = 241
+      Top = 21
+      Width = 68
+      Height = 13
+      Caption = 'DATA INICIAL'
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 70
+      Width = 33
+      Height = 13
+      Caption = 'VALOR'
+    end
+    object dtpDt_Inicial: TDateTimePicker
+      Left = 8
+      Top = 40
+      Width = 186
+      Height = 21
+      Date = 44851.000000000000000000
+      Time = 0.724876250002125700
+      TabOrder = 0
+    end
+    object dtpDt_Final: TDateTimePicker
+      Left = 241
+      Top = 40
+      Width = 186
+      Height = 21
+      Date = 44851.000000000000000000
+      Time = 0.724956423611729400
+      TabOrder = 1
+    end
+    object grdPagamento: TDBGrid
+      Left = 1
+      Top = 120
+      Width = 445
+      Height = 284
+      Align = alBottom
+      DataSource = dtsGrdPagamento
+      Options = [dgTitles, dgColumnResize, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleHotTrack]
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'PERIODO'
+          Title.Caption = 'PER'#205'ODO'
+          Width = 161
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'MUSICA'
+          Title.Caption = 'M'#218'SICA'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'AUTOR'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PAGO'
+          Title.Caption = 'VALOR PAGO'
+          Visible = True
+        end>
+    end
+    object btnProcessar: TButton
+      Left = 352
+      Top = 89
+      Width = 75
+      Height = 25
+      Caption = 'Processar'
+      TabOrder = 3
+      OnClick = btnProcessarClick
+    end
+    object edtValor: TEdit
+      Left = 8
+      Top = 89
+      Width = 186
+      Height = 21
+      TabOrder = 4
+    end
+  end
+  object qryGrdPagamento: TSQLQuery
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftDate
+        Name = 'Dt_Inicial'
+        ParamType = ptInput
+        Value = '01/10/2022'
+      end
+      item
+        DataType = ftDate
+        Name = 'Dt_Final'
+        ParamType = ptInput
+        Value = '30/10/2022'
+      end>
+    SQL.Strings = (
+      ' select ('#39'De '#39'||pp.dt_inicial||'#39' at'#233' '#39'|| pp.dt_final) periodo,'
+      '        m.nome musica,'
+      '        (aut.nome||'#39'('#39'||aut.nome_artistico||'#39')'#39') autor,'
+      '        pp.valorfinal Pago'
+      '   from pagamento_processado pp'
+      '  inner join musica m '
+      '     on m.idMusica = pp.idmusica'
+      '  inner join autor aut'
+      '     on aut.idautor = pp.idautor'
+      '  where pp.Dt_Inicial >=:Dt_Inicial'
+      '    and pp.Dt_final <= :Dt_Final')
+    SQLConnection = ECAD.ConnectionECAD
+    Left = 48
+    Top = 192
+    object qryGrdPagamentoPERIODO: TWideStringField
+      FieldName = 'PERIODO'
+      Size = 24
+    end
+    object qryGrdPagamentoMUSICA: TWideStringField
+      FieldName = 'MUSICA'
+      Size = 60
+    end
+    object qryGrdPagamentoAUTOR: TWideStringField
+      FieldName = 'AUTOR'
+      Size = 122
+    end
+    object qryGrdPagamentoPAGO: TBCDField
+      FieldName = 'PAGO'
+      Precision = 10
+      Size = 2
+    end
+  end
+  object dstpGridPagamento: TDataSetProvider
+    DataSet = qryGrdPagamento
+    Left = 48
+    Top = 280
+  end
+  object cdsGridPagamento: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dstpGridPagamento'
+    Left = 192
+    Top = 184
+  end
+  object dtsGrdPagamento: TDataSource
+    DataSet = cdsGridPagamento
+    Left = 200
+    Top = 272
+  end
+  object qryProcessa: TSQLQuery
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'Dt_Inicial'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Dt_final'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftFloat
+        Name = 'Valor'
+        ParamType = ptInput
+      end>
+    SQL.Strings = (
+      
+        'exec SYSTEM.PRC_PROCESSA_PAGAMENTO(:Dt_Inicial,:Dt_final,:Valor ' +
+        ');'
+      ''
+      '')
+    SQLConnection = ECAD.ConnectionECAD
+    Left = 352
+    Top = 224
+  end
+end

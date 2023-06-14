@@ -1,0 +1,53 @@
+unit untConsultaMusicaAutor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.DBCtrls, Vcl.ExtCtrls, Data.FMTBcd, Data.SqlExpr, Vcl.StdCtrls,
+  Datasnap.DBClient, Datasnap.Provider;
+
+type
+  TfrmConsultaMusicaAutoor = class(TForm)
+    Panel1: TPanel;
+    cmbConsulta: TDBLookupComboBox;
+    grdConsulta: TDBGrid;
+    qryCmbConsulta: TSQLQuery;
+    dstpCmbConsulta: TDataSetProvider;
+    cdsCmbConsulta: TClientDataSet;
+    dtsCmbPesquisa: TDataSource;
+    qryCmbConsultaIDAUTOR: TFMTBCDField;
+    qryCmbConsultaAUTOR: TWideStringField;
+    Label1: TLabel;
+    btnPesquisar: TButton;
+    qryGrdConsulta: TSQLQuery;
+    dstpGrdConsulta: TDataSetProvider;
+    cdsGrdConsulta: TClientDataSet;
+    dtsGrdConsulta: TDataSource;
+    qryGrdConsultaNOME_AUTOR: TWideStringField;
+    qryGrdConsultaNOME_MUSICA: TWideStringField;
+    procedure FormCreate(Sender: TObject);
+    procedure dstpCmbConsultaAfterApplyUpdates(Sender: TObject;
+      var OwnerData: OleVariant);
+    procedure cmbConsultaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmConsultaMusicaAutoor: TfrmConsultaMusicaAutoor;
+
+implementation
+uses dtmECAD;
+{$R *.dfm}
+
+
+
+
+
+
+
+end.
